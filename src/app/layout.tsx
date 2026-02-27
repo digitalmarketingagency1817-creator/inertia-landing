@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Fraunces } from "next/font/google";
+import { Inter, Fraunces, Frank_Ruhl_Libre } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -11,6 +11,13 @@ const inter = Inter({
 const fraunces = Fraunces({
   variable: "--font-fraunces",
   subsets: ["latin"],
+  display: "swap",
+});
+
+const frankRuhlLibre = Frank_Ruhl_Libre({
+  variable: "--font-frank-ruhl-libre",
+  subsets: ["latin"],
+  weight: "400",
   display: "swap",
 });
 
@@ -28,7 +35,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${fraunces.variable} font-sans antialiased`}
+        className={`${inter.variable} ${fraunces.variable} ${frankRuhlLibre.variable} font-sans antialiased`}
       >
         {children}
       </body>
