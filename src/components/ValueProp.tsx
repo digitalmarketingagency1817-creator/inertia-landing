@@ -1,45 +1,150 @@
-import Image from "next/image";
-
-const pills = ["needs", "goals", "plans", "life"];
+const billItems = [
+  { category: "LOANS", amount: "$900.00" },
+  { category: "RENT", amount: "$1,000.00" },
+  { category: "COFFEE", amount: "$6.00" },
+  { category: "CAR PAYMENT", amount: "$450.00" },
+];
 
 export default function ValueProp() {
   return (
-    <section id="habits" className="py-16 md:py-28 px-6 md:px-12 lg:px-20">
-      <div className="max-w-7xl mx-auto">
-        {/* Top: heading + image */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center mb-20">
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl leading-[1.15] text-forest">
-            We help you make a few money decisions each day
-          </h2>
-          <div className="relative aspect-[4/3] rounded-3xl overflow-hidden">
-            <Image
-              src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80&auto=format&fit=crop"
-              alt="People making thoughtful decisions together"
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, 50vw"
-            />
-          </div>
-        </div>
+    <section className="bg-cream py-20 md:py-28 px-6 md:px-12 lg:px-20">
+      <div className="max-w-[846px] mx-auto">
+        {/* Headline */}
+        <h2
+          className="font-[family-name:var(--font-playfair-display)] font-medium text-center mx-auto mb-16 md:mb-20"
+          style={{
+            fontSize: "clamp(36px, 5vw, 65px)",
+            lineHeight: 1.4,
+            color: "#0F3D2E",
+            maxWidth: 783,
+          }}
+        >
+          We help you make a few money decisions each day
+        </h2>
 
-        {/* Bottom: habits + pills */}
-        <div className="text-center">
-          <h3 className="font-display text-2xl md:text-3xl lg:text-4xl text-forest mb-8">
-            that adapt to your habits
-          </h3>
-          <div className="flex flex-wrap justify-center gap-3 mb-6">
-            {pills.map((pill) => (
-              <span
-                key={pill}
-                className="px-6 py-2.5 rounded-full border border-forest/25 text-forest text-sm md:text-base font-medium"
+        {/* Card + Annotation layout */}
+        <div className="relative flex justify-end">
+          {/* Annotation: curved arrow + text */}
+          <div className="absolute left-0 bottom-4 md:bottom-8 w-[280px] md:w-[320px]">
+            {/* Curved arrow SVG */}
+            <svg
+              width="180"
+              height="200"
+              viewBox="0 0 180 200"
+              fill="none"
+              className="absolute -top-[190px] left-[40px] md:left-[60px]"
+              style={{ pointerEvents: "none" }}
+            >
+              <path
+                d="M10 195 C 10 80, 60 30, 160 15"
+                stroke="#0F3D2E"
+                strokeWidth="1.2"
+                fill="none"
+                strokeLinecap="round"
+              />
+              {/* Arrowhead */}
+              <path
+                d="M155 10 L162 16 L153 19"
+                stroke="#0F3D2E"
+                strokeWidth="1.2"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+            {/* Annotation text */}
+            <p
+              className="font-[family-name:var(--font-inter)]"
+              style={{
+                fontSize: "clamp(17px, 1.8vw, 23px)",
+                lineHeight: 1.35,
+                color: "#0F3D2E",
+                fontWeight: 400,
+                transform: "rotate(-8deg)",
+                transformOrigin: "top left",
+              }}
+            >
+              When everything feels
+              <br />
+              urgent, nothing gets
+              <br />
+              resolved
+            </p>
+          </div>
+
+          {/* Bill Card */}
+          <div
+            className="relative z-10"
+            style={{
+              width: 257,
+              background: "#FFFFFF",
+              borderRadius: 12.8,
+              boxShadow: "0 4px 24px rgba(0, 0, 0, 0.08)",
+              overflow: "hidden",
+            }}
+          >
+            {billItems.map((item, idx) => (
+              <div
+                key={item.category}
+                className="relative"
+                style={{
+                  padding: "16px 20px",
+                  borderTop: idx > 0 ? "1px solid #E8E5DF" : "none",
+                }}
               >
-                {pill}
-              </span>
+                {/* Left accent bar */}
+                <div
+                  className="absolute left-0 top-3 bottom-3"
+                  style={{
+                    width: 3,
+                    backgroundColor: "#D4D0C8",
+                    borderRadius: 2,
+                  }}
+                />
+                {/* Category pill */}
+                <span
+                  className="font-[family-name:var(--font-fragment-mono)] inline-block uppercase"
+                  style={{
+                    fontSize: 19,
+                    fontWeight: 400,
+                    color: "#000000",
+                    backgroundColor: "#EFAD87",
+                    borderRadius: 7.4,
+                    padding: "4px 8px",
+                    lineHeight: 1.2,
+                    marginBottom: 6,
+                  }}
+                >
+                  {item.category}
+                </span>
+                {/* Amount */}
+                <div
+                  className="font-[family-name:var(--font-dm-mono)]"
+                  style={{
+                    fontSize: 25.6,
+                    fontWeight: 400,
+                    color: "#000000",
+                    lineHeight: 1.3,
+                  }}
+                >
+                  {item.amount}
+                </div>
+                {/* Amount Due label */}
+                <div
+                  className="font-[family-name:var(--font-fragment-mono)] uppercase"
+                  style={{
+                    fontSize: 16.75,
+                    fontWeight: 400,
+                    color: "#8C938E",
+                    lineHeight: 1.3,
+                    letterSpacing: "0.02em",
+                  }}
+                >
+                  AMOUNT DUE
+                </div>
+              </div>
             ))}
           </div>
-          <p className="text-forest/60 text-sm md:text-base max-w-md mx-auto">
-            Why? Because you can&apos;t fit your life into rigid categories.
-          </p>
         </div>
       </div>
     </section>

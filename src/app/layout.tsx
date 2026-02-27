@@ -1,5 +1,12 @@
 import type { Metadata } from "next";
-import { Inter, Fraunces, Frank_Ruhl_Libre } from "next/font/google";
+import {
+  Inter,
+  Fraunces,
+  Frank_Ruhl_Libre,
+  Playfair_Display,
+  Fragment_Mono,
+  DM_Mono,
+} from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -21,6 +28,27 @@ const frankRuhlLibre = Frank_Ruhl_Libre({
   display: "swap",
 });
 
+const playfairDisplay = Playfair_Display({
+  variable: "--font-playfair-display",
+  subsets: ["latin"],
+  weight: "500",
+  display: "swap",
+});
+
+const fragmentMono = Fragment_Mono({
+  variable: "--font-fragment-mono",
+  subsets: ["latin"],
+  weight: "400",
+  display: "swap",
+});
+
+const dmMono = DM_Mono({
+  variable: "--font-dm-mono",
+  subsets: ["latin"],
+  weight: "400",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: "Inertia — The financial tool that adapts to you",
   description:
@@ -35,7 +63,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${fraunces.variable} ${frankRuhlLibre.variable} font-sans antialiased`}
+        className={`${inter.variable} ${fraunces.variable} ${frankRuhlLibre.variable} ${playfairDisplay.variable} ${fragmentMono.variable} ${dmMono.variable} font-sans antialiased`}
       >
         {children}
       </body>
