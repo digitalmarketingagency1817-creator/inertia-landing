@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import Statement from "@/components/Statement";
 import Clarity from "@/components/Clarity";
 import ValueProp from "@/components/ValueProp";
+import HabitsKeywords from "@/components/HabitsKeywords";
 import Features from "@/components/Features";
 import Relationship from "@/components/Relationship";
 import Steadiness from "@/components/Steadiness";
@@ -20,6 +21,7 @@ export default function Home() {
       <Statement />
       <Clarity />
       <ValueProp />
+      <HabitsKeywords />
       <Features />
       <Relationship />
       <Steadiness />
